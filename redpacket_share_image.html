@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧧 恭喜发财 - 红包来了</title>
+    <meta property="og:title" content="🧧 恭喜发财 - 红包来了">
+    <meta property="og:description" content="朋友给你发了一个红包，快来领取吧！">
+    <meta property="og:image" content="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9InJlZGdyYWRpZW50IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I0ZGNDc1NztzdG9wLW9wYWNpdHk6MSIgLz4KPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojRkYzODM4O3N0b3Atb3BhY2l0eToxIiAvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSJ1cmwoI3JlZGdyYWRpZW50KSIvPgo8cmVjdCB4PSIxMDAiIHk9IjEwMCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIHJ4PSIyMCIgZmlsbD0iI0ZGRDcwMCIgc3Ryb2tlPSIjRkZGIiBzdHJva2Utd2lkdGg9IjMiLz4KPHRleHQgeD0iMjAwIiB5PSIxODAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI0ZGNDc1NyI+8J+nqTwvdGV4dD4KPHRleHQgeD0iMjAwIiB5PSIyMjAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNGRjQ3NTciPuaBreeZueivpzwvdGV4dD4KPHRleHQgeD0iMjAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI0ZGNDc1NyI+8J+SsDwvdGV4dD4KPC9zdmc+">
+    <meta property="og:type" content="website">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 50%, #ff9ff3 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 背景装饰 */
+        .bg-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            animation: float 8s infinite ease-in-out;
+            opacity: 0.6;
+            font-size: 2rem;
+        }
+
+        .floating-element:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .floating-element:nth-child(2) { top: 20%; right: 15%; animation-delay: 1s; }
+        .floating-element:nth-child(3) { top: 60%; left: 5%; animation-delay: 2s; }
+        .floating-element:nth-child(4) { top: 70%; right: 10%; animation-delay: 3s; }
+        .floating-element:nth-child(5) { top: 40%; left: 80%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* 主要内容 */
+        .main-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* 红包图片容器 - 这是主要的可点击区域 */
+        .redpacket-image-container {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 30px 0;
+            z-index: 10;
+        }
+
+        .redpacket-image-container:hover {
+            transform: scale(1.05) rotate(2deg);
+            filter: brightness(1.1);
+        }
+
+        .redpacket-image-container:active {
+            transform: scale(0.95);
+        }
+
+        /* 红包样式 */
+        .redpacket-display {
+            width: 280px;
+            height: 350px;
+            background: linear-gradient(145deg, #ff4757, #ff3838);
+            border-radius: 25px 25px 50px 50px;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(255, 71, 87, 0.5);
+            border: 4px solid #ffd700;
+            overflow: hidden;
+        }
+
+        .redpacket-display::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 40px;
+            background: #ff3838;
+            border-radius: 20px 20px 0 0;
+            border: 4px solid #ffd700;
+            border-bottom: none;
+        }
+
+        .redpacket-display::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.3) 0%, transparent 50%);
+        }
+
+        .redpacket-content {
+            padding: 50px 30px 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .redpacket-emoji-large {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        .redpacket-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .redpacket-subtext {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+        }
+
+        .redpacket-money {
+            font-size: 3rem;
+            animation: rotate 3s infinite linear;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-8px); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .tap-instruction {
+            margin-top: 30px;
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            animation: blink 1.5s infinite;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .subtitle {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 300px;
+            line-height: 1.4;
+        }
+
+        /* 点击波纹效果 */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2rem;
+            }
+            
+            .redpacket-display {
+                width: 240px;
+                height: 300px;
+            }
+            
+            .redpacket-emoji-large {
+                font-size: 3rem;
+            }
+            
+            .redpacket-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 背景装饰 -->
+    <div class="bg-decoration">
+        <div class="floating-element">🪙</div>
+        <div class="floating-element">💰</div>
+        <div class="floating-element">💴</div>
+        <div class="floating-element">💵</div>
+        <div class="floating-element">🧧</div>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="main-container">
+        <h1 class="title">🧧 恭喜发财 🧧</h1>
+        
+        <!-- 这是主要的可点击红包图片 -->
+        <div class="redpacket-image-container" id="redpacketImage">
+            <div class="redpacket-display">
+                <div class="redpacket-content">
+                    <div class="redpacket-emoji-large">🧧</div>
+                    <div class="redpacket-text">恭喜发财</div>
+                    <div class="redpacket-subtext">大吉大利</div>
+                    <div class="redpacket-money">💰</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tap-instruction">👆 点击领取红包</div>
+        <div class="subtitle">朋友给你发了一个红包<br>快来看看有多少钱吧！</div>
+    </div>
+
+    <script>
+        // 在这里设置你的GitHub Pages链接
+        const TARGET_URL = 'https://your-username.github.io/your-repo-name/main.html';
+        
+        const redpacketImage = document.getElementById('redpacketImage');
+
+        // 点击红包图片跳转
+        redpacketImage.addEventListener('click', function(e) {
+            // 创建点击波纹效果
+            createRipple(e, this);
+            
+            // 短暂延迟后跳转，让用户看到点击效果
+            setTimeout(() => {
+                window.location.href = TARGET_URL;
+            }, 300);
+        });
+
+        // 创建点击波纹效果
+        function createRipple(event, element) {
+            const ripple = document.createElement('div');
+            const rect = element.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = event.clientX - rect.left - size / 2;
+            const y = event.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple');
+            
+            element.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        }
+
+        // 如果没有设置目标链接，显示提示
+        if (TARGET_URL.includes('your-username')) {
+            redpacketImage.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('请先在代码中设置目标链接！\n找到 TARGET_URL 并替换为你的实际链接。');
+            });
+        }
+    </script>
+</body>
+</html>
