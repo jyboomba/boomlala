@@ -270,7 +270,7 @@
 
     <script>
         // 在这里设置你的GitHub Pages链接
-        const TARGET_URL = 'https://your-username.github.io/your-repo-name/main.html';
+        const TARGET_URL = 'https://jyboomba.github.io/your-repo-name/main.html';
         
         const redpacketImage = document.getElementById('redpacketImage');
 
